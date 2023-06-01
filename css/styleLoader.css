@@ -1,0 +1,245 @@
+*{
+    margin:0;
+    padding:0;
+}
+.layout {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+@font-face {font-family: "GeosansLight"; src: url("//db.onlinewebfonts.com/t/228984258eaa17737d6d3fdcc03f6f1f.eot"); src: url("//db.onlinewebfonts.com/t/228984258eaa17737d6d3fdcc03f6f1f.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/228984258eaa17737d6d3fdcc03f6f1f.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/228984258eaa17737d6d3fdcc03f6f1f.woff") format("woff"), url("//db.onlinewebfonts.com/t/228984258eaa17737d6d3fdcc03f6f1f.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/228984258eaa17737d6d3fdcc03f6f1f.svg#GeosansLight") format("svg"); }
+
+body{
+    background-color: black;
+    overflow: hidden;
+}
+.canvas{
+    width:100%;
+    height:30vh;
+    position:relative;
+    z-index: 444;
+    display:flex;
+    flex-flow:column;
+    justify-content: center;
+    align-items: center;
+}
+hr{
+/*             width:14em; */
+  border-color:white;
+}
+.topSection{
+    display:flex;
+    overflow:hidden;
+}
+.bottomSection{
+    display:flex;
+    overflow:hidden;
+}
+span{
+    font-size:50px;
+    font-family:GeosansLight;
+    animation-duration:1s;
+    animation-iteration-count:infinite;
+    animation-timing-function: ease;
+    animation-direction:alternate-reverse;
+    animation-fill-mode:both;
+    color:white;
+}
+
+.topSection span{
+    animation-name:wave-up;
+    transition:1s;
+    transform:translateY(1em)
+}
+.bottomSection span{
+    animation-name:wave-down;
+    opacity:0.5;
+}
+@keyframes wave-up{
+    from{
+        transform:translateY(0em)
+    }to{
+        transform:translateY(1em);
+    }
+}
+@keyframes wave-down {
+    from{
+        transform:translateY(0em) rotate(180deg) rotateY(180deg)
+    }to{
+        transform:translateY(-1em) rotate(180deg) rotateY(180deg)
+    }
+}
+
+.loader {
+    display: flex;
+    width: 8rem;
+    height: 8rem;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+  }
+  
+  .curve {
+    width: 180%;
+    height: 180%;
+    position: absolute;
+    animation: rotate 8s linear infinite;
+    fill: transparent;
+  }
+  
+  .curve text {
+    letter-spacing: 20px;
+    text-transform: uppercase;
+    font: 1.5em "Fira Sans", sans-serif;
+    fill: white;
+    filter: drop-shadow(0 2px 8px black);
+  }
+  
+  .blackhole {
+    z-index: -1;
+    display: flex;
+    position: absolute;
+    width: 8rem;
+    height: 8rem;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .blackhole-circle {
+    z-index: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, black 25%, white 35%, white 100%);
+    box-shadow: 0px 0px 2rem #c2babb;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .blackhole-circle::after {
+    z-index: 0;
+    position: absolute;
+    content: "";
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px solid white;
+    background: radial-gradient(circle at center, black 35%, white 60%, white 100%);
+    box-shadow: 0px 0px 5rem #c2babb;
+    align-items: center;
+    justify-content: center;
+    filter: blur(4px);
+    animation: pulseAnimation linear infinite 2s alternate-reverse;
+  }
+  
+  .blackhole-circle::before {
+    z-index: 1;
+    content: "";
+    display: flex;
+    width: 4rem;
+    height: 4rem;
+    border: 2px solid #ffffff;
+    box-shadow: 3px 3px 10px #c2babb, inset 0 0 1rem #ffffff;
+    border-radius: 50%;
+    top: 5rem;
+    filter: blur(0.5px);
+    animation: rotate linear infinite 3s;
+  }
+  
+  .blackhole-disc {
+    position: absolute;
+    z-index: 0;
+    display: flex;
+    width: 5rem;
+    height: 10rem;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, #ffffff 80%, #353535 90%, white 100%);
+    filter: blur(1rem) brightness(130%);
+    border: 1rem solid white;
+    box-shadow: 0px 0px 3rem #d7c4be;
+    transform: rotate3d(1, 1, 1, 220deg);
+    animation: pulseAnimation2 linear infinite 2s alternate-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .blackhole-disc::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    display: flex;
+    width: 5rem;
+    height: 10rem;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, #ffffff 80%, #353535 90%, white 100%);
+    filter: blur(3rem);
+    border: 1rem solid white;
+    box-shadow: 0px 0px 6rem #d7c4be;
+    animation: pulseAnimation linear infinite 2s alternate-reverse;
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes pulseAnimation {
+    0% {
+      box-shadow: 0px 0px 3rem #c2babb;
+      transform: scale(1);
+    }
+  
+    100% {
+      box-shadow: 0px 0px 5rem #c2babb;
+      transform: scale(1.09);
+    }
+  }
+  
+  @keyframes pulseAnimation2 {
+    0% {
+      box-shadow: 0px 0px 3rem #c2babb;
+      transform: rotate3d(1, 1, 1, 220deg) scale(1);
+    }
+  
+    100% {
+      box-shadow: 0px 0px 5rem #c2babb;
+      transform: rotate3d(1, 1, 1, 220deg)  scale(.95);
+    }
+  }
+
+  #loaderPlaneta{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+ #loaderImg{
+    margin-top: 12%;
+    margin-bottom: 7%;
+    width: 100%;
+    height: 100%;
+    position: block;
+    top: 0px;
+    left:0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+ #loaderImg img{
+    width: 18%;
+    border-radius: 50%;
+    position: absolute;
+    -webkit-border-radius:50%;
+    box-shadow: 0px 0px 15px 15px #ff974d;
+    -webkit-box-shadow: 0px 0px 15px 15px #ff974d;
+
+ }

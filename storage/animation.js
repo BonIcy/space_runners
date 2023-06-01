@@ -15,7 +15,7 @@ export default{
                 $('#glitch-text').attr('data-text', glitchText);
             }
         
-            // Llamar a la función de generación de texto cada 3 segundos
+
             setInterval(generateGlitchText, 600);
         });  
     }
