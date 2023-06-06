@@ -1,0 +1,51 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    
+}
+#proyectos{
+    background-image: url(img/fondo.avif);
+    object-fit: fill;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+#contineall1, #contineall2, #contineall3, #contineall4, #contineall5{
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0s ease;  
+  }
+  .labels label{
+    color: white;
+    cursor: pointer;
+    transition: all 400ms ease;
+    text-decoration: underline white;
+  }
+  .labels label:hover{
+    color: gray;
+    text-decoration: underline gray;
+  }
+  /*  */
+   #valorantcheck, #Isaaccheck, #Minecraftcheck, #Robloxcheck, #Terrariacheck{
+    display: none;
+  }  
+  #Minecraftcheck:checked + #contineall3{
+    max-height: 100%;
+  }
+  #Robloxcheck:checked + #contineall4{
+    max-height: 100%;
+  }
+  #Terrariacheck:checked + #contineall5{
+    max-height: 100%;
+  }
+  #Isaaccheck:checked + #contineall2{
+    max-height: 100%;
+  }
+  #valorantcheck:checked + #contineall1{
+    max-height: 100%;
+  }
+  

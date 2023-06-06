@@ -257,12 +257,142 @@ h1 span:after {
   /* ---------------area de integrantes------------ */
 
 
-  .integrantes{
-    padding-top: 10%;
-    display: grid;
-    place-items: center;
+  .slider{width: 100%}
+  .slider input{display: none;}
+  .Miembros{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 480px;
+    perspective: 1000px;
+    overflow: hidden;
+  }
+  .Miembros .item{
+    width: 300px;
+    padding: 30px;
+    border-radius: 5px;
+    background-color: #21262d;
+    position: absolute;
+    border:3px solid white;
+    top: 0;
+    box-sizing: border-box;
+    text-align: center;
+    transition: transform 0.4s;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    user-select: none;
+    cursor: pointer;
+  }
+  .Miembros .item h1{font-size: 114px; color: white;}
+  .dots{display: flex; justify-content: center;align-items: center;}
+  .dots label{
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #413B52;
+    margin: 7px;
+    transition-duration: 0.2s;
   }
   
+  #t-1:checked ~ .dots label[for="t-1"],
+      #t-2:checked ~ .dots label[for="t-2"],
+      #t-3:checked ~ .dots label[for="t-3"],
+      #t-4:checked ~ .dots label[for="t-4"],
+      #t-5:checked ~ .dots label[for="t-5"],
+      #t-6:checked ~ .dots label[for="t-6"],
+      #t-7:checked ~ .dots label[for="t-7"],
+      #t-8:checked ~ .dots label[for="t-8"],
+      #t-9:checked ~ .dots label[for="t-9"],
+      #t-10:checked ~ .dots label[for="t-10"] {
+          transform: scale(2);
+          background-color: #fff;
+          box-shadow: 0px 0px 0px 3px #dddddd24;
+      }
+  
+      #t-1:checked ~ .dots label[for="t-2"],
+      #t-2:checked ~ .dots label[for="t-1"],
+      #t-2:checked ~ .dots label[for="t-3"],
+      #t-3:checked ~ .dots label[for="t-2"],
+      #t-3:checked ~ .dots label[for="t-4"],
+      #t-4:checked ~ .dots label[for="t-3"],
+      #t-4:checked ~ .dots label[for="t-5"],
+      #t-5:checked ~ .dots label[for="t-4"],
+      #t-6:checked ~ .dots label[for="t-5"],
+      #t-7:checked ~ .dots label[for="t-6"],
+      #t-8:checked ~ .dots label[for="t-7"],
+      #t-9:checked ~ .dots label[for="t-8"],
+      #t-10:checked ~ .dots label[for="t-9"] {
+          transform: scale(1.5);
+      }
+  
+      #t-1:checked ~ .Miembros label[for="t-3"],
+      #t-2:checked ~ .Miembros label[for="t-4"],
+      #t-3:checked ~ .Miembros label[for="t-5"],
+      #t-4:checked ~ .Miembros label[for="t-6"],
+      #t-5:checked ~ .Miembros label[for="t-7"],
+      #t-6:checked ~ .Miembros label[for="t-8"],
+      #t-7:checked ~ .Miembros label[for="t-9"],
+      #t-8:checked ~ .Miembros label[for="t-10"],
+      #t-9:checked ~ .Miembros label[for="t-1"],
+      #t-10:checked ~ .Miembros label[for="t-2"] {
+          transform: translate3d(600px, 0, -180px) rotateY(-25deg);
+          z-index: 2;
+      }
+  
+      #t-1:checked ~ .Miembros label[for="t-2"],
+      #t-2:checked ~ .Miembros label[for="t-3"],
+      #t-3:checked ~ .Miembros label[for="t-4"],
+      #t-4:checked ~ .Miembros label[for="t-5"],
+      #t-5:checked ~ .Miembros label[for="t-6"],
+      #t-6:checked ~ .Miembros label[for="t-7"],
+      #t-7:checked ~ .Miembros label[for="t-8"],
+      #t-8:checked ~ .Miembros label[for="t-9"],
+      #t-9:checked ~ .Miembros label[for="t-10"],
+      #t-10:checked ~ .Miembros label[for="t-1"] {
+          transform: translate3d(300px, 0, -90px) rotateY(-15deg);
+          z-index: 3;
+      }
+  
+      #t-2:checked ~ .Miembros label[for="t-1"],
+      #t-3:checked ~ .Miembros label[for="t-2"],
+      #t-4:checked ~ .Miembros label[for="t-3"],
+      #t-5:checked ~ .Miembros label[for="t-4"],
+      #t-6:checked ~ .Miembros label[for="t-5"],
+      #t-7:checked ~ .Miembros label[for="t-6"],
+      #t-8:checked ~ .Miembros label[for="t-7"],
+      #t-9:checked ~ .Miembros label[for="t-8"],
+      #t-10:checked ~ .Miembros label[for="t-9"],
+      #t-1:checked ~ .Miembros label[for="t-10"] {
+          transform: translate3d(-300px, 0, -90px) rotateY(15deg);
+          z-index: 3;
+      }
+  
+      #t-3:checked ~ .Miembros label[for="t-1"],
+      #t-4:checked ~ .Miembros label[for="t-2"],
+      #t-5:checked ~ .Miembros label[for="t-3"],
+      #t-6:checked ~ .Miembros label[for="t-4"],
+      #t-7:checked ~ .Miembros label[for="t-5"],
+      #t-8:checked ~ .Miembros label[for="t-6"],
+      #t-9:checked ~ .Miembros label[for="t-7"],
+      #t-10:checked ~ .Miembros label[for="t-8"],
+      #t-1:checked ~ .Miembros label[for="t-9"],
+      #t-2:checked ~ .Miembros label[for="t-10"] {
+          transform: translate3d(-600px, 0, -180px) rotateY(25deg);
+      }
+  
+      #t-1:checked ~ .Miembros label[for="t-1"],
+      #t-2:checked ~ .Miembros label[for="t-2"],
+      #t-3:checked ~ .Miembros label[for="t-3"],
+      #t-4:checked ~ .Miembros label[for="t-4"],
+      #t-5:checked ~ .Miembros label[for="t-5"],
+      #t-6:checked ~ .Miembros label[for="t-6"],
+      #t-7:checked ~ .Miembros label[for="t-7"],
+      #t-8:checked ~ .Miembros label[for="t-8"],
+      #t-9:checked ~ .Miembros label[for="t-9"],
+      #t-10:checked ~ .Miembros label[for="t-10"] {
+          z-index: 4;
+      }
   
     
     .our-team {
@@ -371,8 +501,6 @@ h1 span:after {
 /* seccion contacto */
 
 /* -------------------Contactanos------------------- */
-
-
 
 
 
@@ -1011,3 +1139,146 @@ footer{
   background-color: black;
   color: white;
 }
+
+
+
+
+
+   /* seccion de alianzas */
+
+
+   .teams {
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:center;
+  }
+  .card1{
+    padding:2rem;
+    display:flex;
+    flex-direction:column;
+   justify-content:space-between;
+    width:250px;
+    height:350px;
+    box-shadow:2px 4px 8px rgba(0,0,0,.2);
+    border-radius:5px;
+  }
+  .card1:hover{
+    background-color: #9BA4B5;  
+  }
+  .card-top{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .link{
+    padding-top: 2%;
+    text-align: center;
+  }
+  
+  .card-top .imgR{
+    width:80px;
+    height:80px;
+    box-shadow:1px 1px 4px 2px rgba(255,255,255,.2);
+    border-radius:50%;
+  }
+  .card-top.name{
+    margin-top:10px;
+    color:#fff;
+    text-transform:capitalize;
+  }
+  .card-top.link {
+    color: #838985;
+    cursor:pointer;
+  }
+  .card-top.link::before{
+    content:"@"
+  }
+  .card-top.link:hover{
+    color:red;
+  }
+  .btn{
+    border:2px solid #1D0E2E;
+    padding:.6rem;
+    border-radius:30px;
+    color:#fff;
+    background:transparent;
+    cursor:pointer;
+    text-transform:capitalize;
+    transition:.2s easy-in-out;
+  }
+  .btn:hover{
+    background:#97DEFF;
+    box-shadow:2px 4px 3px #1D0E2E;
+  }
+  
+  .teams {
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:center;
+  }
+  .card1{
+    padding:2rem;
+    display:flex;
+    flex-direction:column;
+   justify-content:space-between;
+    width:250px;
+    height:350px;
+    box-shadow:2px 4px 8px rgba(0,0,0,.2);
+    border-radius:5px;
+  }
+  .card1:hover{
+    background-color: #9BA4B5;  
+  }
+  .card-top{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .link{
+    padding-top: 2%;
+    text-align: center;
+  }
+  
+  .card-top .imgR{
+    width:80px;
+    height:80px;
+    box-shadow:1px 1px 4px 2px rgba(255,255,255,.2);
+    border-radius:50%;
+  }
+  .card-top.name{
+    margin-top:10px;
+    color:#fff;
+    text-transform:capitalize;
+  }
+  .card-top.link {
+    color: #838985;
+    cursor:pointer;
+  }
+  .card-top.link::before{
+    content:"@"
+  }
+  .card-top.link:hover{
+    color:red;
+  }
+  .btn{
+    border:2px solid #1D0E2E;
+    padding:.6rem;
+    border-radius:30px;
+    color:#fff;
+    background:transparent;
+    cursor:pointer;
+    text-transform:capitalize;
+    transition:.2s easy-in-out;
+  }
+  .btn:hover{
+    background:#97DEFF;
+    box-shadow:2px 4px 3px #1D0E2E;
+  }
+  
+ 
