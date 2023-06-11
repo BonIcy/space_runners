@@ -1,1 +1,1 @@
-Sección 1, navbar, sin responsive
+Entrega casi final, (en un edit mas lo terminamos)

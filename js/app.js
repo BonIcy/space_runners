@@ -1,6 +1,17 @@
 import animation from "../storage/animation.js";
 import  myTeam from "./myTeam.js";
 
+// parte del header
+
+const toggle = document.getElementsByClassName('toggle')[0]
+const navbarLinks = document.getElementsByClassName('navbar-navv')[0]
+
+toggle.addEventListener('click', () => {
+    navbarLinks.classList.toggle('active')
+})
+
+// parte de no c
+
 myTeam.muestraTeam();
 
 animation.show();
@@ -64,3 +75,41 @@ function blinkText() {
 		elDescr.classList.add(classIsAnimated);
 	}, 10);
 }
+
+
+//Proyectos
+// Función para aplicar estilos
+function applyStyles(element, styles) {
+    for (let prop in styles) {
+      element.style[prop] = styles[prop];
+    }
+  }
+  
+  // Función para validar los checks
+  function validateChecks() {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener('change', () => {
+        if (checkbox.checked) {
+          checkbox.parentNode.classList.add('checked');
+        } else {
+          checkbox.parentNode.classList.remove('checked');
+        }
+      });
+    });
+  }
+  
+  // Ejecutar la función de estilos
+  window.onload = function () {
+    const labels = document.querySelectorAll('.labels label');
+    labels.forEach((label) => {
+      applyStyles(label, {
+        color: 'red',
+        fontWeight: 'bold',
+        fontSize: '20px',
+      });
+    });
+  
+    // Ejecutar la función de validación de checks
+    validateChecks();
+  };
