@@ -1,27 +1,32 @@
 import animation from "../storage/animation.js";
 import  myTeam from "./myTeam.js";
-
-// parte del header
-
-const toggle = document.getElementsByClassName('toggle')[0]
-const navbarLinks = document.getElementsByClassName('navbar-navv')[0]
-
-toggle.addEventListener('click', () => {
-    navbarLinks.classList.toggle('active')
-})
-
-// parte de no c
-
+import myInicio from "./myIntro.js";
+myInicio.muestraIntro();
 myTeam.muestraTeam();
 
-animation.show();
-let navbarToggler = document.querySelector('.navbar-toggler');
-let navbarNav = document.querySelector('.navbar-nav');
+// parte del header
+const toggleButton = document.querySelector('.toggle-button');
+const navbarCollapse = document.querySelector('.navbar-collapse');
 
-navbarToggler.addEventListener('click', () => {
-  navbarToggler.classList.toggle('open');
-  navbarNav.classList.toggle('open');
+toggleButton.addEventListener('click', function() {
+  navbarCollapse.classList.toggle('active');
 });
+
+const button = document.getElementById('button');
+
+function getRandomColor() {
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  return `rgb(${r}, ${g}, ${b})`;
+}
+
+function changeBorderColor() {
+  const color = getRandomColor();
+  button.style.borderColor = color;
+}
+
+setInterval(changeBorderColor, 1000); // Cambia el color del borde cada segundo (puedes ajustar el intervalo según tus preferencias)
 
 
 // parte de tecnologias
@@ -32,8 +37,8 @@ const elLinks = document.getElementsByClassName('sn-link');
 const elLinksLength = elLinks.length;
 const elTitle = document.getElementsByClassName('sn-title')[0];
 const elDescr = document.getElementsByClassName('sn-descr')[0];
-const originalTitle = elTitle.textContent;
-const originalDescr = elDescr.textContent;
+// const originalTitle = elTitle.textContent;
+// const originalDescr = elDescr.textContent;
 
 
 for (let i = 0; i < elLinksLength; i++) {
@@ -113,3 +118,8 @@ function applyStyles(element, styles) {
     // Ejecutar la función de validación de checks
     validateChecks();
   };
+
+
+
+
+// funcion de footer
